@@ -11,5 +11,26 @@
     
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        // let: Declaration declares a block-scoped local variable, optionally initializing it to a value
+        // var: Declares a function-scoped or globally-scoped variable, optionally initializing it to a value. Repeatable declaration
+        // const: Declaration creates block-scoped constants, much like variables declared using the let keyword. The value of a constant can't be changed through reassignment
+        let name = "Halston", age = 22, gender = false; // In gender field, true represent Male, false represent Female
+
+        let value; // undefined
+        let value1 = null; // undefined
+        // value == value1 would be true -> loose equality, will perform a type conversion
+        // value === value1 would be false -> strict equality, without type conversion; if the types differ, false is returned
+
+        // alert 有 Blocking 阻塞效應
+        // alert(name + " is " + age + " yeras old. And gender is " + gender);
+        // alert(`${name}, ${age}, ${gender}`);
+
+        // debugger;
+        console.log({name: name, age: age, gender: gender});
+
+        const person = {name: "Halston", age: 22, gender: false}; // typeof person -> object
+        console.log(person);
+    </script>
 </body>
 </html>

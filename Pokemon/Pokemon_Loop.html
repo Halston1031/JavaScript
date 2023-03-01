@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    <h1 class="bg-warning text-white text-center" id="title">寶可夢圖鑑列表</h1>
+
+    <div row="class" id='container'>
+
+    </div>
+    <script>
+        let container;
+        let pokemons = "";
+        
+        // 將所有寶可夢的img字串加總
+        for (let i = 1; i <= 1008; i++)
+        {
+            let fileName = i.toString().padStart(3, '0'); // str.padStart(targetLength [, padString]) 會將用給定用於填充的字串，以重複的方式，插入到目標字串的起頭(左側)，直到目標字串到達指定長度
+            let filePath = `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${fileName}.png`;
+            let pokemons_img =`<img src='${filePath}' title = '寶可夢'>`;
+            pokemons += pokemons_img;
+        }
+
+        // 將所有寶可夢的img字串一次指派給 container.innerHTML
+        container = document.getElementById("container");
+        container.innerHTML = pokemons; // innerHTML 屬性獲取或設置元素中包含的 HTML 或 XML 標記
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+</body>
+</html>
