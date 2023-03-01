@@ -18,7 +18,7 @@
         let pokemons = "";
 
         window.onload = function() {
-            setTimeout(PokemonList, 5000); // 5s
+            setTimeout(displayPokemon, 1000); // 1s
         }
         
         function PokemonList(){
@@ -35,6 +35,7 @@
             container = document.getElementById("container");
             container.innerHTML = pokemons; // innerHTML 屬性獲取或設置元素中包含的 HTML 或 XML 標記
         }
+        const displayPokemon = PokemonList();
     </script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
