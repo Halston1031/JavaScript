@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            width:600px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="text-align: center;"></h1>
+
+    <div id="container" style="text-align: center;"></div>
+    <script>
+        const title = "英雄聯盟 - Ahri阿離";
+        
+        const imageArray = [
+            "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Ahri_0.jpg", 
+            "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Ahri_1.jpg", 
+            "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Ahri_2.jpg",
+            "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Ahri_3.jpg"
+        ];
+
+        let h1, container;
+        window.onload = function(){
+            container = document.getElementById("container");
+            h1 = document.querySelector("h1");
+            // set h1
+            h1.innerText = title;
+
+            // show pics
+            imageArray.forEach(url => {
+                let img = document.createElement("img");
+                img.setAttribute("src", url);
+                container.append(img);
+            });
+        }
+
+    </script>
+</body>
+
+</html>

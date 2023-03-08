@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="jumbotron bg-info">
+        <h1>用Array陣列資料結合DOM API動態產生Table</h1>
+    </div>
+    <div id="container">
+
+    </div>
+
+    <script>
+        let Titles = ['國家', '確診', '死亡', '治癒'];
+
+        let Taiwan = ['台灣', 41, 1, 12];
+        let China = ['中國', 80134, 2914, 44595];
+        let America = ['美國', 9665, 146, 694];
+        let Global = [Taiwan, China, America];
+
+        let table = document.createElement('table');
+        table.setAttribute("class", "table table-bordered table-striped table-dark");
+        //table.setAttribute("border", "2");
+        let thead = document.createElement('thead');
+        let tbody = document.createElement('tbody');
+
+        window.onload = function () {
+            //createTable(Titles, Taiwan);
+            createTable(Titles, Global);
+
+            //get body element
+            document.body.appendChild(table);
+        }
+
+        /**
+         * create a table.
+         * @constructor
+         * @param {array} title - The title of the table.
+         * @param {array} rows - The rows of the table.
+         */
+        function createTable(titles, rowsArray) {
+            //建立thead欄位資料
+            AddRow(thead, titles);
+
+            //建立tbody資料列
+            /*
+            if (Array.isArray(rowsArray[0])) {
+                rowsArray.forEach(function (item) {
+                    AddRow(tbody, item);
+                });
+            }
+            */
+
+            rowsArray.forEach(function (row) {
+                if(Array.isArray(row)){
+                    AddRow(tbody, row);
+                }
+            });
+
+            // if(!Array.isArray(rowsArray[0])){  
+            //     //AddRow(tbody, rowsArray);
+            // }
+            // else{
+            //     rowsArray.forEach(function(item){
+            //         AddRow(tbody, item);
+            //     });
+            // }
+        }
+
+        function AddRow(target, rowData) {
+            //建立tbody資料列
+            let _row = document.createElement('tr');
+            //create table cells
+            rowData.forEach(function (item, index, array) {
+                let td = document.createElement('td');
+                let tdText = document.createTextNode(item);
+                td.appendChild(tdText);
+                _row.appendChild(td)
+            });
+
+            target.appendChild(_row);
+            table.appendChild(target);
+        }
+    </script>
+</body>
+
+</html>

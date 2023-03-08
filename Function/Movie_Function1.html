@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Level 0 : 這是一種平鋪直敍直白寫法</h1>
+    <h1></h1>
+    <img id="img1" src="" alt="">
+    
+
+    <script>
+        let moviename = "Tron光速戰記";
+        const movieUrl = "https://nofilmschool.com/sites/default/files/styles/article_extra_wide/public/tron.jpg";
+
+        window.onload = function(){
+            setMovie();
+        };
+        
+        function setMovie(){
+            let h1 = document.querySelector("h1:nth-child(2)");
+            let img = document.getElementById("img1");
+
+            h1.innerText = moviename;
+            h1.innerHTML= `<b>${moviename}</b>`;
+
+            img.src = movieUrl;
+            img.setAttribute("src", movieUrl);
+
+            let imgUrl = img.getAttribute("src");
+       }
+    </script>
+</body>
+
+</html>
