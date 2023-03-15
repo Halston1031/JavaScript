@@ -6,4 +6,4 @@ function $g(selector){
     } 
     return nodelist.length == 1 ? nodelist[0] : nodelist; 
 } 
-export { $g }; 
+export { $g };
