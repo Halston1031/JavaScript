@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <style>
+        h3 {
+            width: 150px;
+        }
+
+        table, td {
+            border: 1px solid black;
+        }
+
+        table > tbody > tr > td:nth-child(1) {
+            background-color: red;
+        }
+
+        table > tbody > tr > td:nth-child(2) {
+            background-color: lightblue;
+        }
+
+        table > tbody > tr > td:nth-child(3) {
+            background-color: lightgreen;
+        }
+    </style>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"
+        integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!--  <div id="title"></div>
+    <div id="subtitle" class="bg-info"></div> -->
+
+    <div class="jumbotron">
+        <h1 id="title"></h1>
+        <div id="subtitle" class="text-primary"></div>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>編號</th>
+                <th>姓名</th>
+                <th>電子郵件</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1.</td>
+                <td>Kevin</td>
+                <td>kevin@gmail.com</td>
+            </tr>
+            <tr>
+                <td>2.</td>
+                <td>David</td>
+                <td>david@gmail.com</td>
+            </tr>
+            <tr>
+                <td>3.</td>
+                <td>Mary</td>
+                <td>mary@gmail.com</td>
+            </tr>
+        </tbody>
+        <tfoot></tfoot>
+    </table>
+
+    <script>
+        //querySelector("#id選擇器")選擇器，回傳一個Emlement
+        let title = document.querySelector("#title");
+        title.innerHTML = "<h1>通訊錄</h1>";
+
+        //querySelector(".class類別選擇器")選擇器，回傳一個Emlement
+        let subtitle = document.querySelector(".text-primary");
+        subtitle.innerHTML = "<h3>國小同學</h3>";
+        let h3 = subtitle.querySelector("h3");
+        h3.setAttribute("style", "background-color:cyan")
+
+        //設定Thead背景色
+        //1.querySelector()選擇器，回傳一個Emlement
+        let thead = document.querySelector("table>thead>tr");
+
+        thead.style.color = "blue";
+        thead.style.backgroundColor = 'yellow';
+        
+        document.write(thead.getAttribute("style") + "<br>");
+
+        document.write("*_".repeat(30) + "<br>");
+
+        //2.querySelectorAll()選擇器,回傳NodeList-選擇Tbody的所有<tr>列
+        let trs = document.querySelectorAll("table>tbody>tr");
+
+        trs.forEach(tr => {
+            let tds = tr.querySelectorAll("td");
+            tds.forEach(td => {
+                console.log(td.innerHTML);
+            });
+        });
+
+        let trRows = document.querySelectorAll("table>tbody>tr");   //NodeList，三個<tr>
+
+        trRows.forEach(function (item, index, list) {
+
+            //let trs = document.querySelectorAll("");
+
+
+            let tds = item.cells;  //HTMlCollection
+            //document.write(`${tdCols[0].innerHTML}, ${tdCols[1].innerHTML}, ${tdCols[2].innerHTML}<br>`);
+            //1.tds - forEach()
+            let msg = "";
+            [...tds].forEach((td, index) => {
+                msg += td.innerText + ",";
+            });
+            debugger;
+            //document.write(msg + "<br/>");
+
+
+            //2.tds2 - for()
+            msg = "";
+
+            for (let i = 0; i < tds.length; i++) {
+                msg += tds[i].innerText + ",";
+            }
+            document.write(msg);
+            document.write("<br>" + ".".repeat(60) + "<br>");
+
+            //3.用...把HTMLCollection展開成陣列, 陣列支援forEach()
+            msg = "";
+            let tdArray = [...tds];
+            tdArray.forEach((td, index) => {
+                // msg += td.innerText + ",";
+            });
+            // document.write(msg + "<br/>");
+
+        });
+
+        document.write("*_".repeat(30) + "<br>");
+
+        //3.querySelectorAll()選擇器,回傳NodeList-選擇Tbody的所有tr列之第二欄<td>
+        let names = document.querySelectorAll("table>tbody>tr>td:nth-child(2)");    //NodeList
+        names.forEach(function (item, index, list) {
+            document.write(`${item.innerHTML}<br>`);  //item is 三個<td>
+        });
+
+        //替每個td註冊click事件, 顯示td的內容
+        let tds = document.querySelectorAll("td");
+        tds.forEach(function (td) {
+            td.addEventListener("click", function (event) {
+                alert(event.target.innerHTML);
+                //alert(this.innerHTML);
+            });
+        });
+
+    </script>
+</body>
+
+</html>
