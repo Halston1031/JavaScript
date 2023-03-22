@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        CropData = {
+    "crop":"NCU",
+    "version":"1.0.1",
+    "publish": "2023/03/22",
+    "employees": [
+    {
+        "firstname": "Halston",
+        "gender": false,
+        "height": 160,
+        "email": "halston123@gmail.com",
+        "city": {
+            "通訊地址":"新竹",
+            "戶籍地址":"新竹"
+        },
+        "phone": {
+            "市話":"03-1234567",
+            "行動電話":"0987-654321"
+        }
+    },
+    {
+        "firstname": "Mary",
+        "gender": false,
+        "height": 177,
+        "email": "mary123@gmail.com",
+        "city": {
+            "通訊地址":"新竹",
+            "戶籍地址":"台北"
+        },
+        "phone": {
+            "市話":"03-1263567",
+            "行動電話":"0987-691721"
+        }
+    },
+    {
+        "firstname": "John",
+        "gender": true,
+        "height": 180,
+        "email": "john123@gmail.com",
+        "city": {
+            "通訊地址":"台北",
+            "戶籍地址":"台中"
+        },
+        "phone": {
+            "市話":"03-1238867",
+            "行動電話":"0987-666222"
+        }
+    }
+]
+}
+
+        window.onload = function() {
+            let employees = CropData.employees;
+            employees.forEach(emp =>{
+                document.write(`<p>${emp.firstname}, ${emp.city.通訊地址}, ${emp.phone.行動電話}, ${emp.height}</p>`);
+            });
+
+            CropData.employees.forEach(emp =>{
+                document.write(`<p>${emp.firstname}, ${emp.city.戶籍地址}, ${emp.phone.市話}, ${emp.height}</p>`);
+            });
+        }
+    </script>
+</body>
+</html>

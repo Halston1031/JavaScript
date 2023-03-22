@@ -1,0 +1,14 @@
+{
+    "firstname": "John",
+    "gender": false,
+    "height": 160,
+    "email": "abcde123@gmail.com",
+    "city": {
+        "通訊地址":"新竹",
+        "戶籍地址":"新竹"
+    },
+    "phone": {
+        "市話":"03-1234567",
+        "行動電話":"0987-654321"
+    }
+}

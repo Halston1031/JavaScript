@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            border: 3px solid gray;
+            margin: 30px;
+            padding-left: 40px;
+        }
+        div:not(#container) > label, div:not(#container) > input{
+            margin-top: 10px;
+        }
+        li{
+            padding: 5px 0;
+            list-style-type: none;            
+            background-color: rgb(170, 167, 167);
+            border-bottom: 1px solid gray;
+            color: #fff;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1 style="text-align: center;">HW DEMO</h1>
+        <h2>All items infomation</h2>
+        <ul id="lisAll"></ul>
+        <input type="button" id="all" value="Show All"></input>
+        
+        <div>
+            <h2>Filiter</h2>
+
+            <label for="Amount">Amount: </label>
+            Between
+            <input id="AmountButtomLimit" type="text" name="text">&nbsp; and &nbsp;
+            <input id="AmountUpperLimit" type="text" name="text"><br>
+
+            <label for="PriceMin">Price: </label>
+            From
+            <input id="PriceMin" type="text" name="text">&nbsp;to&nbsp;
+            <input id="PriceMax" type="text" name="text"><br>
+            
+            <div>
+                ProductType:
+                <input type="radio" name="ProductType" id="3C" checked>
+                <label for="3C">3C</label>
+                <input type="radio" name="ProductType" id="Food">
+                <label for="Food">Food</label>
+                <input type="radio" name="ProductType" id="Drink">
+                <label for="Drink">Drink</label>
+            </div>
+
+            <!-- <select id="box1" onChange="funct(this);">
+                <option>3C</option>
+                <option>Food</option>
+                <option>Drink</option>
+            </select> -->
+
+            <input type="button" value="Filter" id="Filter">
+            <ul id="lisFiliter"></ul>
+        </div>
+
+        <div>
+            <h2>Search items</h2>
+            <label for="ProductNumber">ProductNumber: </label>
+            <input id="ProductNumber" type="text" name="text"><br>
+            <label for="ProductName">ProductName: </label>
+            <input id="ProductName" type="text" name="text"><br>
+            <label for="Amount">Amount: </label>
+            <input id="Amount" type="text" name="text"><br>
+            <label for="Price">Price: </label>
+            <input id="Price" type="text" name="text"><br>
+            <label for="ProductType">ProductType: </label>
+            <input id="ProductType" type="text" name="text"><br>
+            <input type="button" value="Search" id="search">
+        </div>
+        <!-- <button id="search">Search</button> -->
+        <ul id="lisSearch"></ul>
+    </div>
+    
+
+    <script type="module">
+        import { product } from"../Modules/product.js"; 
+        
+        // let h1 = document.createElement("h1");
+        // h1.innerHTML = `HW DEMO`;
+        // document.body.appendChild(h1);
+
+        let title = "HW DEMO";
+        let h1 = document.querySelector("h1");
+        h1.innerText = title;
+
+        let Container = document.getElementById("container");
+        let LisAll = document.getElementById("lisAll");
+        let All = document.getElementById("all")
+        let elec = document.getElementById("3C");
+        let Food = document.getElementById("food");
+        let Drink = document.getElementById("drink");
+        let Filter = document.getElementById("Filter");
+        let LisFiliter = document.getElementById("lisFiliter");
+        let LisSearch = document.getElementById("lisSearch");
+       
+
+        // show All
+        All.addEventListener("click", ShowAll);
+        function ShowAll(){
+            product.forEach(item => {
+                let li = document.createElement("li");
+                li.innerHTML = `${item.ProductNumber}-${item.ProductName}-${item.Amount}-${item.Price}-${item.ProductType}`;
+                LisAll.appendChild(li);
+                All.removeEventListener("click", ShowAll);
+            });
+        }
+
+        // show Filter
+        Filter.addEventListener("click", checkit);
+        function checkit()
+        {
+            var fromAmount = document.getElementById('AmountButtomLimit');
+            var toAmount = document.getElementById('AmountUpperLimit');
+            product.forEach(item => {
+                if( item > fromAmount.options[fromAmount.selectedIndex].value  && item < toAmount.options[toAmount.selectedIndex].value)
+                {
+                    let li = document.createElement("li");
+                    li.innerHTML = `${item.ProductNumber}-${item.ProductName}-${item.Amount}-${item.Price}-${item.ProductType}`;
+                    LisFiliter.appendChild(li);
+                }
+            });
+        }
+
+        
+    </script>
+
+</body>
+</html>
