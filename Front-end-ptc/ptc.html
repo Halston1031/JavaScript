@@ -63,11 +63,11 @@
 
         <div>
             <h2>Search items</h2><br>
-            <label for="ProductNumber">ProductNumber: </label>
-            <input id="ProductNumber" type="text" name="text"><br>
+            <!-- <label for="ProductNumber">ProductNumber: </label>
+            <input id="ProductNumber" type="text" name="text"><br> -->
             <label for="ProductName">ProductName: </label>
             <input id="ProductName" type="text" name="text"><br>
-            <label for="Amount">Amount: </label>
+            <!-- <label for="Amount">Amount: </label>
             <input id="Amount" type="text" name="text"><br>
             <label for="Price">Price: </label>
             <input id="Price" type="text" name="text"><br>
@@ -76,7 +76,7 @@
                 <option>3C</option>
                 <option>Food</option>
                 <option>Drink</option>
-            </select><br>            
+            </select><br>             -->
             <input type="button" value="Search" id="search">
         </div>
         <ul id="lisSearch"></ul>
@@ -100,11 +100,11 @@
         let Sort3C = document.getElementById("3C");
         let SortFood = document.getElementById("Food");
         let SortDrink = document.getElementById("Drink");
-        let ProductNumberInput = document.getElementById("ProductNumber");
+        //let ProductNumberInput = document.getElementById("ProductNumber");
         let ProductNameInput = document.getElementById("ProductName");
-        let AmountInput = document.getElementById("Amount");
-        let PriceInput = document.getElementById("Price");
-        let ProductTypeInput = document.getElementById("ProductType");
+        //let AmountInput = document.getElementById("Amount");
+        //let PriceInput = document.getElementById("Price");
+        //let ProductTypeInput = document.getElementById("ProductType");
         let SearchButton = document.getElementById("search");
         let LisSearch = document.getElementById("lisSearch");
 
@@ -186,21 +186,18 @@
         // Fine Specifications
         SearchButton.addEventListener("click", SearchProducts);
         function SearchProducts() {
-            let ProductNumber = ProductNumberInput.value;
+            //let ProductNumber = ProductNumberInput.value;
             let ProductName = ProductNameInput.value;
-            let Amount = AmountInput.value;
-            let Price = PriceInput.value;
-            let ProductType = ProductTypeInput.value;
+            //let Amount = AmountInput.value;
+            //let Price = PriceInput.value;
+            //let ProductType = ProductTypeInput.value;
 
             let Find = product.filter(item => {
-                return item.ProductNumber.includes(ProductNumber) && 
-                    item.ProductName.includes(ProductName) && 
-                    item.Amount.includes(Amount) &&
-                    item.Price.includes(Price) && 
-                    item.ProductType === ProductType;
+                return  
+                    item.ProductName == ProductName;
             });
 
-            LisSearch.innerHTML = "";
+            //LisSearch.innerHTML = "";
             Find.forEach(item => {
                 let li = document.createElement("li");
                 li.innerHTML = `${item.ProductNumber}-${item.ProductName}-${item.Amount}-${item.Price}-${item.ProductType}`;
