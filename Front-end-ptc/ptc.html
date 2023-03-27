@@ -122,14 +122,13 @@
         // Filter by Amount
         Filter.addEventListener("click", FilterByAmount);
         function FilterByAmount(){
-            let bottom = parseInt(AmountButtomLimit.value);
-            let upper = parseInt(AmountUpperLimit.value);
+            let bottom = document.getElementById("AmountButtomLimit").value;
+            let upper = document.getElementById("AmountUpperLimit").value; 
             let filtererAmount = product.filter(item => {
                 let amount = parseInt(item.Amount);
-                return (amount >= bottom && amount <= upper);
+                return (item.Amount >= bottom && item.Amount <= upper);
             });
 
-            // LisFiliter.innerHTML = "";
             filtererAmount.forEach(item => {
                 let li = document.createElement("li");
                 li.innerHTML = `${item.ProductNumber}-${item.ProductName}-${item.Amount}-${item.Price}-${item.ProductType}`;
@@ -141,15 +140,12 @@
         // Filter by Price
         Filter.addEventListener("click", FilterByPrice);
         function FilterByPrice() {
-
             let PriceMin = document.getElementById("PriceMin").value;
             let PriceMax = document.getElementById("PriceMax").value;
-
             let filterPrice = product.filter(item => {
                 let price = parseInt(item.Price);
                 return (item.Price >= PriceMin && item.Price <= PriceMax)
             });
-            // LisFiliter.innerHTML = "";
             filterPrice.forEach(item => {
                 let li = document.createElement("li");
                 li.innerHTML = `${item.ProductNumber}-${item.ProductName}-${item.Amount}-${item.Price}-${item.ProductType}`;
@@ -178,6 +174,7 @@
                 }
             });
 
+            LisFiliter.innerHTML = "";
             filtered.forEach(item => {
                 let li = document.createElement("li");
                 li.innerHTML = `${item.ProductNumber}-${item.ProductName}-${item.Amount}-${item.Price}-${item.ProductType}`;
