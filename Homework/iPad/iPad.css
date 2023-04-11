@@ -1,0 +1,52 @@
+.global_right{
+    margin: 0 10px;
+    float: right;
+}
+.global_left{
+    margin: 50px;
+    position: fixed;
+}
+.global_left img{
+    border-radius: 15px;
+}
+.container{
+    width: 400px;
+    display: flex;
+    flex-wrap: wrap;
+}
+span{
+    color:rgb(174, 174, 178);
+}
+.boxs{
+    margin: 5px;
+    border: solid rgb(174, 174, 178);;
+    background-color: #fff;
+    border-radius: 15px;
+    width: 190px;
+    height: 100px;
+}
+button img{
+    height: 50px;
+}
+.boxs:active, .boxs:focus 
+{
+    border: solid rgb(101, 163, 211);
+}
+.box{
+    margin: 5px;
+    border: solid rgb(174, 174, 178);
+    background-color: #fff;
+    border-radius: 15px;
+    width: 500px;
+    height: 100px;
+}
+.left{
+}
+.right{
+}
+.last{
+    margin: 10px;
+    padding: 10px;
+    background-color: rgb(228, 228, 234);
+    border-radius: 10px;
+}
