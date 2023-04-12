@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="container"></div>
+
+    <script>
+        let champion = {};
+        let heroObject = {}, heroArray = [];
+        const url = "https://ddragon.leagueoflegends.com/cdn/10.22.1/data/zh_TW/champion.json";
+        const url404 = "https://ddragon.leagueoflegends.com/cdn/10.22.1/data/zh_TW/12345.json";
+
+        window.onload = function () {
+            fetchJson(url);
+        }
+
+        //未接收參數
+        function fetchData() {
+            fetch(url)
+                .then(response => response.text())
+                .then(result => {
+                    document.getElementById("container").innerText = result;
+                });
+        }
+
+        //接收參數
+        function fetchJson(uri) {
+            fetch(uri)
+                .then(function (response) {
+                    if (!response.ok) {
+                        const err = new Error(`找不到資源檔 : ${uri}`);
+                        err.response = response;
+                        throw err;
+                    }
+                    else {
+                        return response.json();
+                    }
+                })
+                .then(result => {
+                    //document.getElementById("container").innerText = result;
+                    champion = result;
+
+                    heroObject = champion.data;
+
+                    heroArray = Object.keys(heroObject);
+                    let valueArray = Object.values(heroObject);
+
+                    // console.log(heroArray);
+                    // console.log(valueArray);
+
+                    //以key Array來迭代
+                    heroArray.forEach((heroName, index)=>{
+                        let hero = heroObject[heroName];
+                        console.log(`${index}. ${hero.id}, ${hero.stats.hp}, ${hero.stats.movespeed}, ${hero.stats.spellblock}, ${hero.stats.attackrange}`);
+                    });
+
+                    console.log('-'.repeat(80));
+                    //value Array來迭代
+                    valueArray.forEach((hero, index)=>{
+                        //物件解構
+                        let { id, stats: { hp}, stats: { movespeed} , stats: { spellblock}, stats: { attackrange}} = hero;
+                        console.log(`${index}. ${id}, ${hp}, ${movespeed}, ${spellblock}, ${attackrange}`);
+                        document.body.append(`${index}. ${id}, ${hp}, ${movespeed}, ${spellblock}, ${attackrange}`, document.createElement("br"));
+                    });
+
+                })
+                .catch(ex => {
+                    console.dir(ex);
+                    console.log(ex.response);
+                    document.body.append(ex.message);
+                });
+        }
+
+
+    </script>
+</body>
+
+</html>

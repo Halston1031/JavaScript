@@ -1,11 +1,9 @@
 ---- 找出和最貴的產品同類別的所有產品
 WITH MostExpensive 
--- 定義CTE query要查詢的暫存內容
 AS (
     SELECT MAX(UnitPrice) AS MaxPrice FROM Products
 )
 SELECT * FROM Products
--- 執行根據CTE欄位的query
 WHERE CategoryID = (
     SELECT CategoryID FROM Products WHERE UnitPrice = (SELECT MaxPrice FROM MostExpensive) 
 );
@@ -17,14 +15,14 @@ AND UnitPrice = (SELECT MIN(UnitPrice) FROM Products WHERE CategoryID
 	IN (SELECT CategoryID FROM Products WHERE UnitPrice = (SELECT MAX(UnitPrice) FROM Products) )
 );
 
----- 計算出上面類別最貴的和最便宜的兩個產品的價差 / \
+---- 計算出上面類別最貴的和最便宜的兩個產品的價差
 WITH ProductMinMax 
 AS (
-    SELECT CategoryID, MAX(UnitPrice) AS MaxPrice, MIN(UnitPrice) AS MinPrice FROM Products GROUP BY CategoryID
+    SELECT CategoryID, MAX(UnitPrice) AS MaxPrice, MIN(UnitPrice) AS MinPrice FROM Products GROUP BY CategoryID 
 )
-SELECT CategoryID, MaxPrice - MinPrice AS PriceDifference FROM ProductMinMax;
+SELECT TOP 1 CategoryID, MaxPrice - MinPrice AS PriceDifference FROM ProductMinMax ORDER BY PriceDifference DESC;
 
--- 找出沒有訂過任何商品的客戶所在的城市的所有客戶
+-- 找出沒有訂過任何商品的客戶,其所在城市中的所有客戶
 
 ---- 找出第 5 貴跟第 8 便宜的產品的產品類別
 
@@ -40,11 +38,11 @@ SELECT CategoryID, MaxPrice - MinPrice AS PriceDifference FROM ProductMinMax;
 
 ---- 列出從來沒有打折 (Discount) 出售的產品
 
----- 列出購買非本國的產品的客戶
+---- 列出購買非本國的產品的客戶(不等於自己所在地)
 
----- 列出在同個城市中有公司員工可以服務的客戶
+---- 列出在同個城市中有公司員工可以服務的客戶(公司員工.location == 客戶.location)
 
----- 列出那些產品沒有人買過
+---- 列出哪些產品沒有人買過
 
 ----------------------------------------------------------------------------------------
 
@@ -52,13 +50,13 @@ SELECT CategoryID, MaxPrice - MinPrice AS PriceDifference FROM ProductMinMax;
 
 ---- 列出每個月月底售出的產品
 
----- 找出有敗過最貴的三個產品中的任何一個的前三個大客戶
+---- 找出有敗過最貴的三個產品中的任何一前三位客戶
 
----- 找出有敗過銷售金額前三高個產品的前三個大客戶
+---- 找出有敗過銷售金額前三高產品的前三位客戶
 
----- 找出有敗過銷售金額前三高個產品所屬類別的前三個大客戶
+---- 找出有敗過銷售金額前三高產品所屬類別的前三位客戶
 
----- 列出消費總金額高於所有客戶平均消費總金額的客戶的名字，以及客戶的消費總金額
+---- 列出消費總金額高於所有客戶平均消費總金額的客戶的名字，以及其客戶的消費總金額
 
 ---- 列出最熱銷的產品，以及被購買的總金額
 
@@ -70,7 +68,7 @@ SELECT CategoryID, MaxPrice - MinPrice AS PriceDifference FROM ProductMinMax;
 
 ---- 列出跟銷售最好的供應商買最多金額的客戶與購買金額 (不含購買其它供應商的產品)
 
----- 列出那些產品沒有人買過
+---- 列出哪些產品沒有人買過
 
 ---- 列出沒有傳真 (Fax) 的客戶和它的消費總金額
 
