@@ -136,24 +136,21 @@
             row = $(".row");
             cardTemplate = $g("#cardPizza");
 
-            setModal(pizzaArray[0].name, pizzaArray[0].imageurl, pizzaArray[0].name);
+            row.append(getCard(pizzaArray[0].name, pizzaArray[0].imageurl, pizzaArray[0].name ));
+         }
 
-            row.append(getCard(pizzaArray[0].name, pizzaArray[0].imageurl));
-        }
-
-        function setModal(title, imgurl, description){
-            let modal = $g('#exampleModal');
-
-            modal.querySelector('h5').innerText = title;
-            modal.querySelector('#pizzaImage').src=imgurl;
-            modal.querySelector('#description').innerText=description;
-        }
-
-
-        function getCard(title, imgurl) {
+        function getCard(title, imgurl, description) {
             let cloneCard = cardTemplate.content.cloneNode(true);
             cloneCard.querySelector("img").src = imgurl;
             cloneCard.querySelector("h5").innerText = title;
+
+            cloneCard.querySelector(".btn").addEventListener("click",function(){
+                let modal = $g('#exampleModal');
+
+                modal.querySelector('h5').innerText = title;
+                modal.querySelector('#pizzaImage').src=imgurl;
+                modal.querySelector('#description').innerText=description;
+            });
 
             return cloneCard;
         }
