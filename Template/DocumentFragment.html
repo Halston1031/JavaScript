@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script type="module">
+        import { $g, $ce } from "../modules/helpers.js";
+
+        let fragment = new DocumentFragment();
+
+        //h1
+        let h1 = $ce("h1");
+        h1.innerText="Ferrari 296";
+        
+        let img = document.createElement("img");
+        img.src = "https://raw.githubusercontent.com/apprunner/FileStorage/master/ferrari296.jpg";
+        
+        fragment.append(h1, img);
+
+        document.body.append(fragment.cloneNode(true));
+        document.body.append(fragment.cloneNode(true));
+
+
+        //ul - li
+        /*
+        let productArray = ["iPhone", "iPad", "Mac", "Watch"];
+
+        let ul = $c("ul");
+        productArray.forEach((item, index)=>{
+            let li = $c("li");
+            li.innerText = item;
+            ul.append(li);
+        });
+
+        fragment.append(ul);
+
+        document.body.append(fragment);
+        */
+
+    </script>
+</body>
+</html>
