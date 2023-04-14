@@ -4,12 +4,14 @@
 }
 .global_left{
     margin: 50px;
-    position: fixed;
+    position: fixed; 
+    top: 0; 
+    left: 0;
 }
 .global_left img{
     border-radius: 15px;
 }
-.container{
+.containers{
     width: 400px;
     display: flex;
     flex-wrap: wrap;
@@ -28,21 +30,17 @@ span{
 button img{
     height: 50px;
 }
-.boxs:active, .boxs:focus 
+/* .boxs:active, .boxs:focus, .box:active, .box:focus 
 {
     border: solid rgb(101, 163, 211);
-}
-.box{
+} */
+.btn{
     margin: 5px;
     border: solid rgb(174, 174, 178);
-    background-color: #fff;
+    /* background-color: #fff; */
     border-radius: 15px;
     width: 500px;
     height: 100px;
-}
-.left{
-}
-.right{
 }
 .last{
     margin: 10px;
