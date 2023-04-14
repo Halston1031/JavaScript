@@ -5,9 +5,9 @@
 </head>
 <body>
   <h1>iPad Product Price</h1>
-  <button id="colorBtn1">Silver</button>
-  <button id="colorBtn2">Space Gray</button>
-  <button id="colorBtn3">Gold</button>
+  <button id="colorBtn1">Star</button>
+  <button id="colorBtn2">Midnight</button>
+  <button id="colorBtn3">Sky Blue</button>
   <br>
   <button id="storageBtn1">64GB</button>
   <button id="storageBtn3">256GB</button>
@@ -21,15 +21,15 @@
   <script>
     // Add click event listeners to color buttons
     document.getElementById('colorBtn1').addEventListener('click', function() {
-      fetchProductPrice('粉紅色');
+      fetchProductPrice('Star');
     });
 
     document.getElementById('colorBtn2').addEventListener('click', function() {
-      fetchProductPrice('太空灰色');
+      fetchProductPrice('Midnight');
     });
 
     document.getElementById('colorBtn3').addEventListener('click', function() {
-      fetchProductPrice('星光色');
+      fetchProductPrice('Sky Blue');
     });
 
     // Add click event listeners to storage buttons
@@ -53,8 +53,7 @@
     // Function to fetch product price based on selected options
     function fetchProductPrice(color, storage, wifiType) {
       var xhr = new XMLHttpRequest();
-      var url = 'https://raw.githubusercontent.com/fishcakeXD/ipadJSON/master/APPLE/ipadair.json';
-
+            const url = "https://raw.githubusercontent.com/Halston1031/JavaScript/master/Homework/iPad/IPadAir.json"
       xhr.onreadystatechange = function() {
         if (xhr.readyState === XMLHttpRequest.DONE) {
           if (xhr.status === 200) {

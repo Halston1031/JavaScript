@@ -1,7 +1,7 @@
 [
     {
         "id":"A001",
-        "color":"太空灰色",
+        "color":"Space Gray",
         "storage":"64GB",
         "network":"Wi-Fi",
         "price":19000,
@@ -9,7 +9,7 @@
     },
     {
         "id":"A002",
-        "color":"太空灰色",
+        "color":"Space Gray",
         "storage":"256GB",
         "network":"Wi-Fi",
         "price":24900,
@@ -17,7 +17,7 @@
     },
     {
         "id":"A003",
-        "color":"太空灰色",
+        "color":"Space Gray",
         "storage":"64GB",
         "network":"Wi-Fi + Cellular",
         "price":24900,
@@ -25,7 +25,7 @@
     },
     {
         "id":"A004",
-        "color":"太空灰色",
+        "color":"Space Gray",
         "storage":"256GB",
         "network":"Wi-Fi + Cellular",
         "price":29900,
@@ -33,7 +33,7 @@
     },
     {
         "id":"A005",
-        "color":"藍色",
+        "color":"Sky Blue",
         "storage":"64GB",
         "network":"Wi-Fi",
         "price":19000,
@@ -41,7 +41,7 @@
     },
     {
         "id":"A006",
-        "color":"藍色",
+        "color":"Sky Blue",
         "storage":"256GB",
         "network":"Wi-Fi",
         "price":24900,
@@ -49,7 +49,7 @@
     },
     {
         "id":"A007",
-        "color":"藍色",
+        "color":"Sky Blue",
         "storage":"64GB",
         "network":"Wi-Fi + Cellular",
         "price":24900,
@@ -57,7 +57,7 @@
     },
     {
         "id":"A008",
-        "color":"藍色",
+        "color":"Sky Blue",
         "storage":"256GB",
         "network":"Wi-Fi + Cellular",
         "price":29900,
@@ -73,7 +73,7 @@
     },
     {
         "id":"A0010",
-        "color":"粉紅色",
+        "color":"Rose Gold",
         "storage":"256GB",
         "network":"Wi-Fi",
         "price":24900,
@@ -81,7 +81,7 @@
     },
     {
         "id":"A011",
-        "color":"粉紅色",
+        "color":"Rose Gold",
         "storage":"64GB",
         "network":"Wi-Fi + Cellular",
         "price":24900,
@@ -89,7 +89,7 @@
     },
     {
         "id":"A012",
-        "color":"粉紅色",
+        "color":"Rose Gold",
         "storage":"256GB",
         "network":"Wi-Fi + Cellular",
         "price":29900,
@@ -97,7 +97,7 @@
     },
     {
         "id":"A0013",
-        "color":"紫色",
+        "color":"Midnight",
         "storage":"64GB",
         "network":"Wi-Fi",
         "price":19000,
@@ -105,7 +105,7 @@
     },
     {
         "id":"A0014",
-        "color":"紫色",
+        "color":"Midnight",
         "storage":"256GB",
         "network":"Wi-Fi",
         "price":24900,
@@ -113,7 +113,7 @@
     },
     {
         "id":"A015",
-        "color":"紫色",
+        "color":"Midnight",
         "storage":"64GB",
         "network":"Wi-Fi + Cellular",
         "price":24900,
@@ -121,7 +121,7 @@
     },
     {
         "id":"A016",
-        "color":"紫色",
+        "color":"Midnight",
         "storage":"256GB",
         "network":"Wi-Fi + Cellular",
         "price":29900,
@@ -129,7 +129,7 @@
     },
     {
         "id":"A017",
-        "color":"星光色",
+        "color":"Star",
         "storage":"64GB",
         "network":"Wi-Fi",
         "price":19000,
@@ -137,7 +137,7 @@
     },
     {
         "id":"A018",
-        "color":"星光色",
+        "color":"Star",
         "storage":"256GB",
         "network":"Wi-Fi",
         "price":24900,
@@ -145,7 +145,7 @@
     },
     {
         "id":"A019",
-        "color":"星光色",
+        "color":"Star",
         "storage":"64GB",
         "network":"Wi-Fi + Cellular",
         "price":24900,
@@ -153,7 +153,7 @@
     },
     {
         "id":"A020",
-        "color":"星光色",
+        "color":"Star",
         "storage":"256GB",
         "network":"Wi-Fi + Cellular",
         "price":29900,
