@@ -15,8 +15,9 @@
             <label for="colorSelection">外觀。 <span>挑選喜愛的顏色。</span></label>
             <div class="containers">
                 <button type="button"  class="boxs btn btn-light" id="colorSelectionButton">
+                    <div class="item">
                     <img alt="太空灰色" src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/ipad-air-finish-space-gray-2022?wid=208&amp;hei=208&amp;fmt=png-alpha&amp;.v=1668014174971" class="form-selector-swatch">
-                    <h4>太空灰色</h4>
+                    <h4>太空灰色</h4></div>
                 </button>
                 <button type="button"  class="boxs btn btn-light" id="colorSelectionButton">
                     <img alt="藍色" src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/ipad-air-finish-blue-2022?wid=208&amp;hei=208&amp;fmt=png-alpha&amp;.v=1668014174784" class="form-selector-swatch">
@@ -36,18 +37,20 @@
                 </button>
             
                 <label for="storageSelection">儲存裝置。 <span>選擇需要的儲存空間大小。</span></label>
-                <button type="button" class="boxs btn btn-light" id="storageSelectionButton">
+                <button type="button" class="boxs btn btn-light" id="storageSelectionButton1">
+                    <div class="item">
                     <h2>64GB</h2>
-                    <h4>NT$19,900 起</h4>
+                    <h4 id="storageSelectionPrice1">NT$19,900 起</h4></div>
                 </button>
-                <button type="button" class="boxs btn btn-light" id="storageSelectionButton">
+                <button type="button" class="boxs btn btn-light" id="storageSelectionButton2">
                     <h2>256GB</h2>
-                    <h4>NT$24,900 起</h4>
+                    <h4 id="storageSelectionPrice2">NT$24,900 起</h4>
                 </button>
+                
 
                 <label for="connectSelection">連線能力。 <span>選擇連線方式。</span></label>
                 <button type="button" class="box btn btn-light d-flex" id="connectSelectionButton">
-                    <div class="">
+                    <div class="item">
                         <h5>WiFi</h5>
                         <p style="font-size: 12px;">每部 iPad 都可連接到 Wi-Fi 網路，使你能保持連線。 </p>
                     </div>
@@ -87,7 +90,7 @@
 
     <script>
             //const url = "https://raw.githubusercontent.com/Halston1031/JavaScript/master/Homework/iPad/IPadAir.json";
-            const url = "https://raw.githubusercontent.com/fishcakeXD/ipadJSON/master/APPLE/ipadair.json"
+            const url = "https://raw.githubusercontent.com/Halston1031/JavaScript/master/Homework/iPad/IPadAir.json"
             let ipadArray = []
             let xhr = new XMLHttpRequest();
             let btn = document.getElementById("btn")
