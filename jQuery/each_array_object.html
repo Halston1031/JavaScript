@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>.each()</h1>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <script>
+        let carArray = ["BMW", "BENZ", "LEXUS", "TOYOTA", "NISSAN"];
+
+        let carObject = {
+            model: "BMW X3",
+            price: 2800000,
+            wieght: "2700KG",
+            color: "red"
+        };
+
+        let $body = $("body");
+        $(function(){
+            let $body = $("body"); 
+            $.each(carArray, function(index, item){ 
+                $body.append($("<p></p>").text(`${index}. ${item}`));     
+            }); 
+            $body.append($("<hr>")); 
+            jQuery.each(carObject, function(item, value){ 
+                $body.append($("<p></p>").text(`${item} = ${value}`));     
+            }); 
+        });
+        $body.appendChild($("<hr>"));
+        for (const car of carArray){
+            let p = document.createElement('p');
+            p.innerText = car;
+            document.body.appendChild(p);
+        }
+        $body.appendChild($("<hr>"));
+        for (const key of Object.keys(carArray)){
+            let p = document.createElement('p');
+            p.innerText = carArray[key];
+            document.body.appendChild(p);
+        }
+
+        for (const value of Object.value(carObject)){
+            let p = document.createElement('p');
+            p.innerText = value;
+            document.body.appendChild(p);
+        }
+
+        for (const key in carObject){
+            let p = document.createElement('p');
+            p.innerText = carObject[key];
+            document.body.appendChild(p);
+
+            if (carObject.hasOwnProperty(key)){
+                p.innerText = carObject[key];
+                document.body.appendChild(p);
+            }
+        }
+
+           
+
+      
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+</head>
+
+<body>
+
+    <form id="form1" action="destination.html">
+        <input type="text" id="username" name="username" value="" placeholder="輸入你的名字">
+        <input type="text" id="email" name="email" value="" placeholder="輸入你Email">
+        <input type="submit" value="Submit提交">
+    </form>
+    <div id=" second">
+        觸發Submit
+        </div>
+
+        <script>
+            $("#form1").submit(function (event) {
+                alert(".submit()事件被呼叫了！");
+                // event.preventDefault();
+            });
+
+            $("#second").click(function () {
+                $("#form1").submit();
+            });
+        </script>
+</body>
+
+</html>

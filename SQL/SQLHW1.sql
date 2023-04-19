@@ -25,7 +25,11 @@ SELECT TOP 1 CategoryID, MaxPrice - MinPrice AS PriceDifference FROM ProductMinM
 -- 找出沒有訂過任何商品的客戶,其所在城市中的所有客戶
 
 ---- 找出第 5 貴跟第 8 便宜的產品的產品類別
-
+SELECT  ProductName, UnitPrice, CategoryID FROM Products
+ORDER BY UnitPrice DESC
+OFFSET 4 ROWS
+FETCH NEXT 1 ROWS ONLY
+SELECT CategoryName FROM Categories WHERE CategoryID = 4
 ---- 找出誰買過第 5 貴跟第 8 便宜的產品
 
 ---- 找出誰賣過第 5 貴跟第 8 便宜的產品

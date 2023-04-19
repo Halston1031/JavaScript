@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+</head>
+
+<body>
+    <h1></h1>
+    <div>
+        <button>js .innerHTML</button>
+        <button>Second</button>
+        <button>jQuery .html()</button>
+    </div>
+
+    <div id="Msg"></div>
+    <div id="jqMsg"></div>
+
+ 
+    <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+
+    <script>
+        var btn1, button1, button2, secondButton;
+    </script>
+
+    <script type="module">
+        import { $g } from "../Modules/helpers.js";
+
+        $g("h1").innerHTML = "JS vs. jQuery";
+
+
+        button1 = document.querySelector("button:first-child");
+        secondButton = document.querySelector("button:nth-child(2)");
+        button2 = document.querySelector("button:last-child");
+
+        var $jq = jQuery.noConflict();
+
+        $jq("button").last().click(function () {
+            $jq("#jqMsg").html("<h1>This is jQuery</h1>");
+        });
+
+    </script>
+</body>
+
+</html>
